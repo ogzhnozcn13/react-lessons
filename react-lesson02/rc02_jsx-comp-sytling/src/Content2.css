@@ -1,0 +1,9 @@
+.par {
+    background-color: chartreuse;
+    color: crimson;
+    font-weight: 900;
+}
+
+.content-div{
+    padding: 2rem;
+}
