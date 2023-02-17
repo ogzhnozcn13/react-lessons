@@ -1,9 +1,30 @@
 import Person from "./components/Person"
 import { data } from "./data"
 
+import Person2 from "./components/Person2"
+import data2 from "./data2"
+
+
 function App() {
   return (
     <div>
+      <data2/>
+
+
+      <Person2 
+      name = "Elena Rostova"
+      img = ""
+      tel = "+59656423846351"/>
+      <Person2 
+      name = "Elena Rostova"
+      img = ""
+      tel = "+59656423846351"/>
+      <Person2 
+      name = "Elena Rostova"
+      img = ""
+      tel = "+59656423846351"/>
+
+      
       {data.map(({ name, img, tel }) => (
         <Person name={name} img={img} tel={tel} />
       ))}
