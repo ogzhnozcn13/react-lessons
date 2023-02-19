@@ -1,8 +1,10 @@
-import "./Button2.css"
+import "./Button2.module.css"
 
 const Button2 = () => {
   return (
-    <div>Button2</div>
+    <div>
+      <button className="btn">name</button>
+    </div>
   )
 }
 

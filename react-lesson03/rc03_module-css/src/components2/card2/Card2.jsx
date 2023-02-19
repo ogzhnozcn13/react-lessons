@@ -1,12 +1,12 @@
 
 import Button2 from "../button2/Button2"
-import "./Card2.css"
+import "./Card2.module.css"
 
 const Card2 = () => {
   return (
     <div>
-        <h1>Languages</h1>
-        <img src="" alt="" />
+        <h1 className="title">Languages</h1>
+        <img className="images" src="" alt="" />
         <Button2/>
     </div>
   )

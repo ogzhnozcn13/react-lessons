@@ -1,0 +1,39 @@
+@import "variables";
+
+
+.container{
+    .card{
+        width: 35%;
+        box-shadow: 5px 5px 20px;
+        margin: 2rem auto;
+        padding: 2rem;
+        border-radius: 1rem;
+    
+
+
+        img{
+            width: 100px;
+            border-radius: 50%;
+            margin: 1.5rem 0;
+        }
+
+        h1{
+            color: red;
+        }
+
+        h3{
+            color: green;
+        }
+
+        .buttons{
+            button{
+            border: none;
+            border-radius: 10px;
+            margin: 0.4rem;
+            padding: 0.5rem;
+            background-color: deepskyblue;
+            cursor: pointer;
+            }
+        }
+    }
+}
