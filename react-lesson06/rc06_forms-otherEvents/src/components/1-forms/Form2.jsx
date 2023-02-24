@@ -13,9 +13,19 @@ const Form2 = () => {
     }
 
 
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      alert(`
+        username: ${username},
+        email: ${email},
+        password: ${password}
+      `)
+    }
+
+
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
         <h2 className="display-6 text-danger">Froms</h2>
 
     <div className="mb-3">
