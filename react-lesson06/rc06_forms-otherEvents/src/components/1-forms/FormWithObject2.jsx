@@ -10,11 +10,12 @@ const FormWithObject2 = () => {
     const [formData, setFormData] = useState({
         username:"",
         email:"",
-        password:""
+        password:"",
+        address:""
     })
 
 
-    const {username, password, email} = formData
+    const {username, password, email, address} = formData
 
 
     const handleSubmit = (e) => {
@@ -22,12 +23,21 @@ const FormWithObject2 = () => {
       alert(`
         username: ${username},
         email: ${email},
-        password: ${password}
+        password: ${password},
+        address: ${address}
       `)
+
+    // setFormData({
+    //   username:"",
+    //   email:"",
+    //   password:"",
+    //   address:""})
     }
 
     const handleFormData = (e) => {
-        setFormData({...formData, [a.target.id]: e.target.value})
+      console.log(e.target.value);
+        setFormData({...formData, [e.target.id]: e.target.value})
+
     }
 
 
@@ -49,6 +59,11 @@ const FormWithObject2 = () => {
     <div className="mb-3">
       <label htmlFor="password" className="form-label">Password: {password}</label>
       <input type="password" className="form-control" id="password" onChange={handleFormData} required/>
+    </div>
+
+    <div className="mb-3">
+      <label htmlFor="text" className="form-label">Address: {address}</label>
+      <input type="text" className="form-control" id="address" onChange={handleFormData} required/>
     </div>
 
     <button type="submit" className="btn btn-danger">Submit</button>

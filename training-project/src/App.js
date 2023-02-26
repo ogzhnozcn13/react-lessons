@@ -7,6 +7,7 @@ import Footer from './components/footer/Footer';
 function App() {
   return (
     <div>
+
       <Header/>
       {data.map((item) => <Main {...item}/>)}
       <Footer/>
