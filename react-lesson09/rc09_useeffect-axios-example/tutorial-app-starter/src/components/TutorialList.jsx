@@ -1,6 +1,7 @@
 import { FaEdit } from "react-icons/fa"
 import { AiFillDelete } from "react-icons/ai"
 import { axios } from "react";
+import EditTutorial from "./EditTutorial";
 
 
   // const tutorials = [
@@ -17,17 +18,27 @@ import { axios } from "react";
   // ]
 
 
-const TutorialList = ({tutorials}) => {
+const TutorialList = ({tutorials, getTutorials}) => {
 
   const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
 
-  const deleteTutorial = async() => {
-
+  const deleteTutorial = async(id) => {
     try {
       await axios.delete(`${BASE_URL} ${id}`)
     } catch (error) {
       
     }
+    getTutorials()
+  }
+
+  const editTutorial = async({id, title, description}) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
+    try {
+      await axios.put(`${BASE_URL} ${id}`, {title, description})
+    } catch (error) {
+      
+    }
+    getTutorials()
   }
 
 
@@ -59,12 +70,20 @@ const TutorialList = ({tutorials}) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-tutor"
+                    onClick={() => editTutorial({
+                      id: 1062,
+                      title: "Deneme",
+                      description: "REACT"
+                    })}
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    onClick={() => deleteTutorial()}
+                    
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
@@ -72,6 +91,8 @@ const TutorialList = ({tutorials}) => {
           })}
         </tbody>
       </table>
+
+      <EditTutorial />
     </div>
   )
 }
