@@ -18,7 +18,7 @@ const AddTutorial = ({getTutorials}) => {
   }
 
 
-  const postTutorial = async(newTutorial) => {
+  const postTutorial = async(newTutorial, getTutorials) => {
     const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
 
     try {
