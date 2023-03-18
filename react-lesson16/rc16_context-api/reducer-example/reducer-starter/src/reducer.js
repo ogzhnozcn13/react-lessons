@@ -4,3 +4,7 @@ export const initialState = {
     catImage: "",
     error: false
 }
+
+export const reducer = () => {
+    
+}
