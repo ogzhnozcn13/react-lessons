@@ -2,7 +2,9 @@ import "./Footer.css"
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <Footer className="footer">
+      Copyright by Ozi {new Date().getFullYear()}
+    </Footer>
   )
 }
 

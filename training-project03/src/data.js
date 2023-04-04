@@ -5,8 +5,8 @@ const data = [
       title: "Emily Kurnikov",
       desc: "55555 555 555",
     },
+
     {
-   
       img: "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445__340.jpg",
       title: "john Smith",
       desc: "55555 555 555",
