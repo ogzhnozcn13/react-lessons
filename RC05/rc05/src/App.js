@@ -1,10 +1,14 @@
 import './App.css';
-import Events from './components/1-evens/Events';
+import UseStateCounter from './components/3-useStateHook/UseStateCounter';
+// import Events from './components/1-events/Events';
+// import Counter from './components/2-classComponents/Counter';
 
 function App() {
   return (
     <div>
-      <Events/>
+      {/* <Events/> */}
+      {/* <Counter/> */}
+      <UseStateCounter/>
     </div>
   );
 }
