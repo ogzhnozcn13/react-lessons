@@ -3,16 +3,29 @@ import { useState } from "react"
 
 const FormWithObject = () => {
 
-const [username, setUsername] = useState("")
-const [email, setEmail] = useState("")
-const [password, setPassword] = useState("")
+// const [username, setUsername] = useState("")
+// const [email, setEmail] = useState("")
+// const [password, setPassword] = useState("")
 
-const handleUsername = (e) => {
-  setUsername(e.target.value)
+const [formData, setFormData] = useState({
+  username: "",
+  email: "",
+  password: "",
+  address:""
+})
+const {username, email, password, address} = formData
+
+// const handleUsername = (e) => {
+//   setUsername(e.target.value)
+// }
+// const handleEmail = (e) => {
+//   setEmail(e.target.value)
+// }
+
+const handleFormData = (e) => {
+  setFormData({...formData, [e.target.value]: e.target.value})
 }
-const handleEmail = (e) => {
-  setEmail(e.target.value)
-}
+
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -21,9 +34,9 @@ const handleSubmit = (e) => {
   email: ${email}
   password: ${password}
   `)
-  setEmail("")
-  setPassword("")
-  setUsername("")
+  // setEmail("")
+  // setPassword("")
+  // setUsername("")
 }
   return (
     
@@ -32,17 +45,22 @@ const handleSubmit = (e) => {
 
           <div className="mb-3">
           <label htmlFor="username" className="form-label">Username: <span className="text-primary">{username}</span></label>
-          <input type="text" className="form-control" id="username" onChange={handleUsername} value={username}/>
+          <input type="text" className="form-control" id="username" onChange={handleFormData} value={username}/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="email" className="form-label">Email address: <span className="text-primary">{email}</span></label>
-          <input type="email" className="form-control" id="email" onChange={handleEmail}/>
+          <input type="email" className="form-control" id="email" onChange={handleFormData}/>
         </div>
 
         <div className="mb-3">
           <label htmlFor="password" className="form-label">Password</label>
-          <input type="password" className="form-control" id="password" required />
+          <input type="password" className="form-control" id="password" required onChange={handleFormData} />
+        </div>
+
+        <div className="mb-3">
+          <label htmlFor="address" className="form-label">Address:</label>
+          <input type="address" className="form-control" id="address" onChange={handleFormData} value={address} required />
         </div>
 
         <button type="submit" className="btn btn-primary">Submit</button>
