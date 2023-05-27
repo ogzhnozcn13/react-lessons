@@ -23,7 +23,8 @@ const {username, email, password, address} = formData
 // }
 
 const handleFormData = (e) => {
-  setFormData({...formData, [e.target.value]: e.target.value})
+  console.log(e.target.value);
+  setFormData({...formData, [e.target.id]: e.target.value})
 }
 
 
@@ -60,7 +61,7 @@ const handleSubmit = (e) => {
 
         <div className="mb-3">
           <label htmlFor="address" className="form-label">Address:</label>
-          <input type="address" className="form-control" id="address" onChange={handleFormData} value={address} required />
+          <input type="text" className="form-control" id="address" onChange={handleFormData} value={address} required />
         </div>
 
         <button type="submit" className="btn btn-primary">Submit</button>
