@@ -1,38 +1,19 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
-import { axios } from "react";
-import EditTutorial from "./EditTutorial";
 
-// const tutorials = [
-//   {
-//     id: 1,
-//     title: "JS",
-//     description: "JS is a programming language",
-//   },
-//   {
-//     id: 2,
-//     title: "React",
-//     description: "JS library for UI design",
-//   },
-// ]
-
-const TutorialList = ({ tutorials, getTutorials }) => {
-  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
-
-  const deleteTutorial = async (id) => {
-    try {
-      await axios.delete(`${BASE_URL} ${id}`);
-    } catch (error) {}
-    getTutorials();
-  };
-
-  const editTutorial = async ({ id, title, description }) => {
-    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
-    try {
-      await axios.put(`${BASE_URL} ${id}`, { title, description });
-    } catch (error) {}
-    getTutorials();
-  };
+const TutorialList = ({ tutorials }) => {
+  // const tutorials = [
+  //   {
+  //     id: 1,
+  //     title: "JS",
+  //     description: "JS is a programming language",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "React",
+  //     description: "JS library for UI design",
+  //   },
+  // ]
 
   return (
     <div className="container mt-4">
@@ -60,21 +41,11 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
-                    data-bs-toggle="modal"
-                    data-bs-target="#edit-tutor"
-                    onClick={() =>
-                      editTutorial({
-                        id: 1062,
-                        title: "Deneme",
-                        description: "REACT",
-                      })
-                    }
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
-                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
@@ -82,8 +53,6 @@ const TutorialList = ({ tutorials, getTutorials }) => {
           })}
         </tbody>
       </table>
-
-      <EditTutorial />
     </div>
   );
 };

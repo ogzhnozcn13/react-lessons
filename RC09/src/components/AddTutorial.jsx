@@ -1,5 +1,5 @@
-import { useState } from "react"
 import axios from "axios"
+import { useState } from "react"
 
 const AddTutorial = ({getTutorials}) => {
   const [title, setTitle] = useState("")
@@ -7,30 +7,25 @@ const AddTutorial = ({getTutorials}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
-    const newTutorial = {title: title, description: description}
-      console.log(newTutorial);
-
-    postTutorial(newTutorial)
-
-    setDescription("")
+    const newTutorial = {title, description}
+    postTutorial()
+    console.log(newTutorial);
     setTitle("")
+    setDescription("")
   }
 
+  console.log(title, description);
 
-  const postTutorial = async(newTutorial, getTutorials) => {
-    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/"
+  const postTutorial = async (newTutorial) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
 
     try {
       await axios.post(BASE_URL, newTutorial)
     } catch (error) {
       console.log(error);
     }
-
     getTutorials()
   }
-
-  
 
   return (
     <div className="container text-center mt-4">
