@@ -1,19 +1,37 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
-
+import axios from "axios";
+// const tutorials = [
+//   {
+//     id: 1,
+//     title: "JS",
+//     description: "JS is a programming language",
+//   },
+//   {
+//     id: 2,
+//     title: "React",
+//     description: "JS library for UI design",
+//   },
+// ]
 const TutorialList = ({ tutorials }) => {
-  // const tutorials = [
-  //   {
-  //     id: 1,
-  //     title: "JS",
-  //     description: "JS is a programming language",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "React",
-  //     description: "JS library for UI design",
-  //   },
-  // ]
+
+  const deleteTutorial = async(id) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+    try {
+      await axios.delete(`${BASE_URL}/${id}/`)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const editTutorial = async({id, title, descriiption}) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+    try {
+      await axios.put(`${BASE_URL}/${id}/`, {title,descriiption})
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className="container mt-4">
@@ -41,11 +59,19 @@ const TutorialList = ({ tutorials }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#edit-tutor"
+                    onClick={() => editTutorial({
+                      id: 1670,
+                      title: "Deneme",
+                      description: "rerere"
+                    })}
                   />
                   <AiFillDelete
                     size={22}
                     type="button"
                     className="text-danger "
+                    onClick={() => deleteTutorial(id)}
                   />
                 </td>
               </tr>
